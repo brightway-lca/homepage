@@ -1,3 +1,5 @@
+/* Color scheme: http://www.colourlovers.com/palette/2162754/JV%E2%99%A5IS */
+
 body {
     background-image: url('linen.png');
     background-repeat: repeat;
@@ -11,30 +13,6 @@ h1, h2, h3, h4 {
 .two {
     color: cornflowerblue;
     font-weight: normal;
-}
-
-.ihline {
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
-}
-
-.isline {
-    stroke: forestgreen;
-    stroke-width: 2;
-    fill: none;
-}
-
-.indicator {
-    stroke: red;
-    stroke-width: 1;
-    fill: none;
-}
-
-.axis path, .axis line {
-    fill: none;
-    stroke: black;
-    stroke-width: 1;
 }
 
 svg {
