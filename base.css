@@ -1,0 +1,123 @@
+body {
+    background-image: url('linen.png');
+    background-repeat: repeat;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.two {
+    color: cornflowerblue;
+    font-weight: normal;
+}
+
+.ihline {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.isline {
+    stroke: forestgreen;
+    stroke-width: 2;
+    fill: none;
+}
+
+.indicator {
+    stroke: red;
+    stroke-width: 1;
+    fill: none;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+}
+
+svg {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header {
+    height: 200px;
+    background-color: white;
+    border-bottom: 4px solid #fdf5e6;
+}
+
+.header-bottom {
+    border-bottom: 2px solid #add8e6;
+    margin-bottom: 10px;
+}
+
+.header img {
+    margin: 0 auto;
+    display: block;
+}
+
+.intro {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.last-p {
+    text-align: center;
+}
+
+li {
+    font-size: 1.5em;
+}
+
+/* From http://css-tricks.com/simple-styles-for-horizontal-rules/ */
+
+hr.stylish-hr {
+    border: 0;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(147,197,114,0), rgba(147,197,114,1), rgba(147,197,114,0));
+    background-image:    -moz-linear-gradient(left, rgba(147,197,114,0), rgba(147,197,114,1), rgba(147,197,114,0));
+    background-image:     -ms-linear-gradient(left, rgba(147,197,114,0), rgba(147,197,114,1), rgba(147,197,114,0));
+    background-image:      -o-linear-gradient(left, rgba(147,197,114,0), rgba(147,197,114,1), rgba(147,197,114,0));
+}
+
+.emphasis {
+    color: #6395ed;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1:hover > a.permalink {
+    visibility: visible;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a {
+    color: black;
+}
+
+a.permalink {
+    margin-left: 6px;
+    color: #d3d3d3;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+a:hover {
+    color: #6495ed;
+}
+
+#viz {
+    box-shadow: 5px 5px 5px #d3d3d3;
+}
