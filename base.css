@@ -15,31 +15,43 @@ h1, h2, h3, h4 {
     font-weight: normal;
 }
 
-svg {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.header {
+    font-family: 'Source Sans Pro', sans-serif;
+    /*width: 950px;*/
+    height: 240px;
+    background-color: #fdfdfd;
+    border-bottom: 4px solid #fdf5e6;
+    text-align: center;
+    display: block;
 }
 
-.header {
-    height: 200px;
-    background-color: white;
-    border-bottom: 4px solid #fdf5e6;
+.toc {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0.2em;
 }
+
 
 .header-bottom {
     border-bottom: 2px solid #add8e6;
     margin-bottom: 10px;
 }
 
-.header img {
+/*.header img {
     margin: 0 auto;
     display: block;
+}
+*/
+
+.header h1 {
+    font-size: 10em;
+    padding-top: 20px;
+    margin-bottom: 0.15em;
 }
 
 .intro {
     font-size: 2em;
-    margin-bottom: 0.5em;
-    text-align: center;
+    margin-bottom: 0.15em;
 }
 
 p {
