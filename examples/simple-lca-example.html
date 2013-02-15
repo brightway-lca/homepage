@@ -745,6 +745,18 @@ init_mathjax();
 </head>
 <body>
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1>IPython Notebook</h1>
+<p>This is an IPython Notebook, an online scientific notebook which combines, text, data, images, and programming. It is amazing, and could be a fantastic way to do and communicate advanced LCA work.</p>
+<ul>
+<li><a href="http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html">Documentation</a></li>
+<li><a href="https://www.youtube.com/watch?v=2G5YTlheCbw">Very long awesomeness</a></li>
+<li><a href="http://nbviewer.ipython.org/">Sharable awesomeness</a></li>
+<li><a href="http://nbviewer.ipython.org/url/epi.whoi.edu/esr/GIS_GRASS-R_Example.ipynb">Just plain amazing awesomeness</a></li>
+<li><a href="http://news.ycombinator.com/item?id=4909070">Hacker News discussion</a></li>
+</ul>
+<p>You can also download the <a href="/examples/simple-lca-example.ipynb">ipython file</a> and run it yourself.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1>A simple LCA caluculation</h1>
 <p>This notebook shows how to define a simple system, and do inventory and impact assessment calculations. First, we import Brightway2:</p>
 </div>
@@ -1320,28 +1332,28 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
         <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;I&quot;</span><span class="p">,</span> 
         <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;emission&quot;</span><span class="p">,</span>
         <span class="s">&quot;unit&quot;</span><span class="p">:</span> <span class="s">&quot;kg&quot;</span><span class="p">,</span>
-        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">[]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;II&quot;</span><span class="p">):</span> <span class="p">{</span>
         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;II&quot;</span><span class="p">,</span>
         <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;II&quot;</span><span class="p">,</span> 
         <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;emission&quot;</span><span class="p">,</span>
         <span class="s">&quot;unit&quot;</span><span class="p">:</span> <span class="s">&quot;kg&quot;</span><span class="p">,</span>
-        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">[]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;III&quot;</span><span class="p">):</span> <span class="p">{</span>
         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;III&quot;</span><span class="p">,</span>
         <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;III&quot;</span><span class="p">,</span> 
         <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;emission&quot;</span><span class="p">,</span>
         <span class="s">&quot;unit&quot;</span><span class="p">:</span> <span class="s">&quot;kg&quot;</span><span class="p">,</span>
-        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">[]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;IV&quot;</span><span class="p">):</span> <span class="p">{</span>
         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;IV&quot;</span><span class="p">,</span>
         <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;IV&quot;</span><span class="p">,</span> 
         <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;emission&quot;</span><span class="p">,</span>
         <span class="s">&quot;unit&quot;</span><span class="p">:</span> <span class="s">&quot;kg&quot;</span><span class="p">,</span>
-        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s">&quot;exchanges&quot;</span><span class="p">:</span> <span class="p">[]</span>
         <span class="p">}</span>
     <span class="p">}</span>
 </pre></div>
@@ -1350,8 +1362,8 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
 </div>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Talk about what is going on here...</p>
-<p>Finally, here is the technosphere data:</p>
+<p>At first glance, this looks a little intimidating. Take a look at the <a href="https://brightway2.readthedocs.org/en/latest/">Brightway2 documentation</a> for a detailed description of what these fields means - if you don't want to right now, you can see that four new biosphere flows are defined, each of type "emission", unit "kg", and with a few other attributes.</p>
+<p>Here is the technosphere data, now of type "process", and with links to each other and to the defined biosphere flows:</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
@@ -1369,13 +1381,13 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;E&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;IV&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">False</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;biosphere&quot;</span>
             <span class="p">}]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">):</span> <span class="p">{</span>
@@ -1389,13 +1401,13 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;E&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;II&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">False</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;biosphere&quot;</span>
             <span class="p">}]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">):</span> <span class="p">{</span>
@@ -1409,19 +1421,19 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">False</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;biosphere&quot;</span>
             <span class="p">}]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;D&quot;</span><span class="p">):</span> <span class="p">{</span>
@@ -1435,19 +1447,19 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;III&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">False</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;biosphere&quot;</span>
             <span class="p">}]</span>
         <span class="p">},</span>
     <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;E&quot;</span><span class="p">):</span> <span class="p">{</span>
@@ -1461,13 +1473,13 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">},</span> <span class="p">{</span>
             <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
             <span class="s">&quot;input&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;D&quot;</span><span class="p">),</span>
             <span class="s">&quot;uncertainty type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-            <span class="s">&quot;technosphere&quot;</span><span class="p">:</span> <span class="bp">True</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;technosphere&quot;</span>
             <span class="p">}]</span>
         <span class="p">},</span>
     <span class="p">}</span>
@@ -1484,11 +1496,13 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">biosphere</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">)</span>
-<span class="c"># biosphere.register(format=&quot;handmade&quot;, depends=[], num_processes=4)</span>
+<span class="k">if</span> <span class="s">&quot;simple-b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">databases</span><span class="p">:</span>
+    <span class="n">biosphere</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&quot;handmade&quot;</span><span class="p">,</span> <span class="n">depends</span><span class="o">=</span><span class="p">[],</span> <span class="n">num_processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">biosphere</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">biosphere_data</span><span class="p">)</span>
 <span class="n">biosphere</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
 <span class="n">technosphere</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span><span class="s">&quot;simple-t&quot;</span><span class="p">)</span>
-<span class="c"># technosphere.register(format=&quot;handmade&quot;, depends=[&quot;simple-b&quot;], num_processes=5)</span>
+<span class="k">if</span> <span class="s">&quot;simple-t&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">databases</span><span class="p">:</span>
+    <span class="n">technosphere</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&quot;handmade&quot;</span><span class="p">,</span> <span class="n">depends</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;simple-b&quot;</span><span class="p">],</span> <span class="n">num_processes</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">technosphere</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">technosphere_data</span><span class="p">)</span>
 <span class="n">technosphere</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
 </pre></div>
@@ -1503,14 +1517,16 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="input_area box-flex1">
-<div class="highlight"><pre><span class="n">lcia_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span><span class="p">):</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;II&quot;</span><span class="p">):</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;III&quot;</span><span class="p">):</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="p">(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;IV&quot;</span><span class="p">):</span> <span class="mf">0.4</span>
-    <span class="p">}</span>
-<span class="n">lcia_method</span> <span class="o">=</span> <span class="n">Method</span><span class="p">((</span><span class="s">&quot;simple&quot;</span><span class="p">,</span> <span class="s">&quot;method&quot;</span><span class="p">))</span>
-<span class="c"># lcia_method.register(unit=&quot;points&quot;)</span>
+<div class="highlight"><pre><span class="n">lcia_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s">&quot;GLO&quot;</span><span class="p">],</span>
+    <span class="p">[(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;II&quot;</span><span class="p">),</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s">&quot;GLO&quot;</span><span class="p">],</span>
+    <span class="p">[(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;III&quot;</span><span class="p">),</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s">&quot;GLO&quot;</span><span class="p">],</span>
+    <span class="p">[(</span><span class="s">&quot;simple-b&quot;</span><span class="p">,</span> <span class="s">&quot;IV&quot;</span><span class="p">),</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s">&quot;GLO&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="n">lcia_name</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;simple&quot;</span><span class="p">,</span> <span class="s">&quot;method&quot;</span><span class="p">)</span>
+<span class="n">lcia_method</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="n">lcia_name</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">lcia_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+    <span class="n">lcia_method</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s">&quot;points&quot;</span><span class="p">)</span>
 <span class="n">lcia_method</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lcia_data</span><span class="p">)</span>
 <span class="n">lcia_method</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
 </pre></div>
@@ -1550,7 +1566,7 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">bw2analyzer</span> <span class="kn">import</span> <span class="n">SerializedLCAReport</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">SerializedLCAReport</span><span class="p">({(</span><span class="s">&quot;simple-t&quot;</span><span class="p">,</span> <span class="s">&quot;E&quot;</span><span class="p">):</span> <span class="mf">2.72</span><span class="p">},</span> <span class="n">method</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;simple&quot;</span><span class="p">,</span> <span class="s">&quot;method&quot;</span><span class="p">))</span>
@@ -1565,7 +1581,8 @@ UYyVgoKCgkKnRzFWCgoKCgqdHsVYKSgoKCh0ev4/CKf6iJasaZcAAAAASUVORK5CYII=
 <div class="hbox output_area">
 <div class="prompt output_prompt"></div>
 <div class="output_subarea output_stream output_stdout">
-<pre>http://reports.brightwaylca.org/report/7bdf37550df24bf1bb583f77deb6409a
+<pre>(10008,)
+http://reports.brightwaylca.org/report/6332f29e9bce49eaa41834d7b66972a8
 </pre>
 </div>
 </div>

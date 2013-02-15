@@ -28,26 +28,26 @@
         <div class="span-10">
             <p>Brightway<span class="two">2</span> is a completely new program for calculating life cycle assessments (LCA). Its core principles are simplicity, innovation, and power. It can be installed on Windows, OS X, and Linux, and has a web interface.</p>
             <ul>
-                <li><a href="https://brightway2.readthedocs.org/en/latest/">Documentation</a> & <a href="https://brightway2.readthedocs.org/en/latest/#quick-start">Quickstart guide</a></li>
+                <li><a href="https://brightway2.readthedocs.org/en/latest/">Documentation</a> & <a href="https://brightway2.readthedocs.org/en/latest/quickstart.html">Quickstart guide</a></li>
                 <li><a href="http://reports.brightwaylca.org/report/ddcac5ad5013417283c3a9754e862be6">An example LCA report</a></li>
-                <li><a href="/examples/simple-lca-example.html">Example: A simple LCA calculation</a></li>
+                <li><a href="/examples/getting-started.html">Getting started with Brightway2</a></li>
+                <li><a href="/examples/simple-lca-example.html">A simple LCA calculation</a></li>
                 <li><a href="/examples/lcia-correlation.html">Example: LCIA method independence</a></li>
-                <li><a href="">Example: new Pedigree Matrix</a></li>
             </ul>
         </div>
         <div class="span-14 last">
-            <iframe width="560" height="315" src="http://www.youtube.com/embed/AMXezM69i2Y" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="http://www.youtube.com/embed/EKYom7BQdJA" frameborder="0" allowfullscreen></iframe>
         </div>
         <hr class="stylish-hr" />
         <h1 id="why">Motivation <a href="#why" class="permalink">¶</a></h1>
         <hr class="stylish-hr" />
-        <p class="span-13 colborder">The pace of innovation in software can be overwhelming, but one would struggle to call any existing LCA software truly innovative. User interfaces are painfully dated, calculations are slow and poorly documented, and new ways of consuming information such as the web are ignored. Brightway<span class="two">2</span> is not trying to replace software such as OpenLCA or SimaPro. Instead, it is designed for individual analysts to do cutting edge calculations on their computers, their servers, or in the cloud, and to push the state of the art in LCA result visualization.</p>
+        <p class="span-12 colborder">The pace of innovation in software can be overwhelming, but one would struggle to call any existing LCA software truly innovative. User interfaces are painfully dated, calculations are slow and poorly documented, and new ways of consuming information such as the web are ignored. Brightway<span class="two">2</span> is not trying to replace software such as <a href="http://www.openlca.org/">OpenLCA</a> or <a href="http://www.pre-sustainability.com/simapro-lca-software">SimaPro</a>. Instead, it is designed for individual analysts to do cutting edge calculations on their computers, their servers, or in the cloud, and to push the state of the art in LCA result visualization.</p>
         <div class="span-10 last">
             <h2>Only Brightway<span class="two">2</span> can:</h2>
             <ul>
                 <li>Compute thousands of LCAs in a few lines of code, and easily graph the results.</li>
                 <li>Perform Monte Carlo uncertainty analysis in under a minute, and automatically export the results.</li>
-                <li>Automatically upload LCA reports to a private webserver or the Brightway<span class="two">2</span> <a href="http://reports.brightwaylca.org">reports server</a>.</li>
+                <li>Automatically upload LCA reports to a private webserver or the Brightway<span class="two">2</span> <a href="http://reports.brightwaylca.org/report/ddcac5ad5013417283c3a9754e862be6">reports server</a>.</li>
             </ul>
         </div>
         <hr class="stylish-hr" />
@@ -59,15 +59,15 @@
             <li><b>Agile</b>. The simplicity of the data format and calculation engine make it easy to adapt the code or add new functionality.</li>
         </ul>
         <ul class="span-11 last">
-            <li><b>Documents</b>. A inventory dataset is a <a href="">document with a few required fields</a>, like <i>unit</i>, but otherwise can be adapted to whatever format you need for your particular model or problem domain. Simple documents can be easily converted to and from other formats.</li>
-            <li><b>Small</b>. Brightway<span class="two">2</span> isn't a full corporate LCA program with facilities for managing teams and permissions. Instead, it is focused on the critical areas where it can be better: calculations and visualization. If you want to share data with a friend, it <a href="">takes only a few clicks</a> to export a <i>bw2package</i> file.</li>
+            <li><b>Documents</b>. A inventory dataset is a <a href="https://brightway2.readthedocs.org/en/latest/key-concepts.html#databases">document with a few required fields</a>, like <i>unit</i>, but otherwise can be adapted to whatever format you need for your particular model or problem domain. Simple documents can be easily converted to and from other formats.</li>
+            <li><b>Small</b>. Brightway<span class="two">2</span> isn't a full corporate LCA program with facilities for managing teams and permissions. Instead, it is focused on the critical areas where it can be better: calculations and visualization. If you want to share data with a friend, it <a href="https://brightway2.readthedocs.org/en/latest/key-concepts.html#data-interchange">takes only a few clicks</a> to export a <i>bw2package</i> file.</li>
             <li><b>Modular</b>. Each set of functions is split into a package, with its own tests and documentation (see the <a href="#packages">list of packages</a> below). Modularity makes it easier to understand and test, and dramatically decreases the activation energy needed for someone to contribute to this open source project.</li>
         </ul>
         <hr class="stylish-hr" />
         <h1 id="technology">Technology <a href="#technology" class="permalink">¶</a></h1>
         <hr class="stylish-hr" />
         <img id="viz" src="visualizations.png" height="200" width="950">
-        <div class="span-5 colborder">
+        <div class="span-5">
             <h2>Software used:</h2>
             <ul>
                 <li><a href="http://www.python.org/">python</a> (2.7)</li>
@@ -89,9 +89,9 @@
             </ul>
         </div>
         <div class="span-18 last">
-            <p>Brightway<span class="two">2</span> is designed to be simple, so let's start by talking about what it doesn't have. First, it doesn't have an SQL, or even NoSQL, database. Because it is not designed for teams, the costs of installing, tuning, and maintaining a database are not worth it. Instead, data is saved as documents in a <b>data directory</b>, which means that they can be easily backed up, or even put on Dropbox. No database also means that installation is quicker and easier.</p>
-            <p>Brightway<span class="two">2</span> is written primarily in <a href="">Python</a>, and uses the fantastic <a href="">NumPy</a> and <a href="">SciPy</a> libraries for matrix algebra. Although Python is not a fast language, Brightway<span class="two">2</span> can perform LCA calculations quickly: a single calculation takes around one tenth of a second, and Monte Carlo uncertainty analysis on a large scale is quick. On a 2011 laptop, around 100 iterations a second are possible.</p>
-            <p>Result graphics are displayed using <a href="http://d3js.org/">D3.js</a>. D3 is just an <a href="http://bl.ocks.org/mbostock">amazing</a> <a href="https://github.com/mbostock/d3/wiki/Gallery">library</a> - powerful, yet simple to understand and easy to tinker with. For example, the built-in graphics for Brightway<span class="two">2</span> can be edited online in <a href="http://tributary.io">tributary.io</a>, e.g. <a href="http://tributary.io/inlet/4567531">supply chain circles</a>, and the <a href="">complete list is here</a>. New visualizations offer new possibilities for both experienced LCA practitioners and lay people to understand the results of LCA studies.</p>
+            <p>Brightway<span class="two">2</span> is designed to be simple, so let's start by talking about what it doesn't have. First, it doesn't have an SQL, or even NoSQL, database. Because it is not designed for teams, the costs of installing, tuning, and maintaining a database are not worth it. Instead, data is saved as documents in a <a href="https://brightway2.readthedocs.org/en/latest/key-concepts.html#the-data-directory">data directory</a>, which means that they can be easily backed up, or even put on Dropbox. No database also means that installation is quicker and easier.</p>
+            <p>Brightway<span class="two">2</span> is written primarily in <a href="http://python.org/">Python</a>, and uses the fantastic <a href="http://www.numpy.org/">NumPy</a> and <a href="http://www.scipy.org/">SciPy</a> libraries for matrix algebra. Although Python is not a fast language, Brightway<span class="two">2</span> can perform LCA calculations quickly: a single calculation takes around one tenth of a second, and Monte Carlo uncertainty analysis on a large scale is quick. On a 2011 laptop, around 100 iterations a second are possible.</p>
+            <p>Result graphics are displayed using <a href="http://d3js.org/">D3.js</a>. D3 is just an <a href="http://bl.ocks.org/mbostock">amazing</a> <a href="https://github.com/mbostock/d3/wiki/Gallery">library</a> - powerful, yet simple to understand and easy to tinker with. For example, the built-in graphics for Brightway<span class="two">2</span> can be edited online in <a href="http://tributary.io">tributary.io</a>, e.g. <a href="http://tributary.io/inlet/4567531">supply chain circles</a>, and the <a href="https://brightway2.readthedocs.org/en/latest/contributing.html#no-python-needed-making-graphics-better">complete list is here</a>. New visualizations offer new possibilities for both experienced LCA practitioners and lay people to understand the results of LCA studies.</p>
         </div>
         <hr class="stylish-hr" />
         <h1 id="contributing">Contributing <a href="#contributing" class="permalink">¶</a></h1>
@@ -100,11 +100,11 @@
         <ul class="span-11 colborder">
             <li>If you see something broken, even just here in the documentation, file a <a href="https://bitbucket.org/cmutel/brightway2/issues/new">bug report</a>.</li>
             <li>If you have some ideas for making things better, file an <a href="https://bitbucket.org/cmutel/brightway2/issues/new">enhancement request</a> (click on <i>Kind</i> to switch to enhancement).</li>
-            <li>If you are comfortable working with computers, look at the list of <a href="">harder problems</a> and see if there is one which fits your interests.</li>
+            <li>If you are comfortable working with computers, look at the list of <a href="https://brightway2.readthedocs.org/en/latest/contributing.html#hard-problems">harder problems</a> and see if there is one which fits your interests.</li>
         </ul>
         <ul class="span-11 last">
             <li>Help write documentation and tutorials.</li>
-            <li>If you know a little about web pages, you can help improve existing visualizations or create new ones. Web visualizations are primarily made in <a href="http://d3js.org/">D3.js</a>, which is both easy to work with and insanely productive. <a href="">See the guide</a> for more information.</li>
+            <li>If you know a little about web pages, you can help <a href="https://brightway2.readthedocs.org/en/latest/contributing.html#no-python-needed-making-graphics-better">improve existing visualizations</a> or <a href="https://brightway2.readthedocs.org/en/latest/contributing.html#implement-other-graphs-from-d3-js">create new ones</a>. Web visualizations are primarily made in <a href="http://d3js.org/">D3.js</a>, which is both easy to work with and insanely productive. <a href="https://brightway2.readthedocs.org/en/latest/contributing.html">See the guide</a> for more information.</li>
             <li>If you aren't sure about any of the options, feel free to get in touch: cmutel@gmail.com.</li>
         </ul>
         <p class="clear">See the <a href="https://brightway2.readthedocs.org/en/latest/contributing.html">guide to contributing</a> for more information, including easy projects for non-programmers, and a detailed list of possible improvements.</p>
