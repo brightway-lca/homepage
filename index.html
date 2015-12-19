@@ -110,9 +110,10 @@
                     <div class=""></div>
                 </div>
 
-                <div class="pure-menu pure-menu-horizontal">
+                <div class="pure-menu pure-menu-horizontal example-menu">
                         <button class="pure-button selected example-button" id="button-lca">LCA Calculation</button>
                         <button class="pure-button example-button" id="button-ecoinvent">Import ecoinvent 3.2</button>
+                        <button class="pure-button example-button" id="button-correlation">LCIA correlation</button>
                 </div>
 
                 <div id="example-lca">
@@ -177,6 +178,35 @@
 </pre></div>
                 </div>
 
+                <div id="example-correlation" style="display: none;">
+                    <div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">brightway2</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">db</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span><span class="s">&quot;ecoinvent 3.2 cutoff&quot;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">gwp</span><span class="p">,</span> <span class="n">usetox</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;IPCC 2013&#39;</span><span class="p">,</span> <span class="s">&#39;climate change&#39;</span><span class="p">,</span> <span class="s">&#39;GWP 100a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;USEtox&#39;</span><span class="p">,</span> <span class="s">&#39;human toxicity&#39;</span><span class="p">,</span> <span class="s">&#39;total&#39;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">lca</span> <span class="o">=</span> <span class="n">LCA</span><span class="p">({</span><span class="n">db</span><span class="o">.</span><span class="n">random</span><span class="p">():</span> <span class="mi">1</span><span class="p">},</span> <span class="n">method</span><span class="o">=</span><span class="n">gwp</span><span class="p">);</span> <span class="n">lca</span><span class="o">.</span><span class="n">lci</span><span class="p">(</span><span class="n">factorize</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span> <span class="n">lca</span><span class="o">.</span><span class="n">lcia</span><span class="p">()</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">calculate_correlation</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+   <span class="o">....</span><span class="p">:</span>         <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+   <span class="o">....</span><span class="p">:</span>         <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="n">gwp</span><span class="p">,</span> <span class="n">usetox</span><span class="p">)):</span>
+   <span class="o">....</span><span class="p">:</span>                 <span class="n">lca</span><span class="o">.</span><span class="n">switch_method</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+   <span class="o">....</span><span class="p">:</span>                 <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">activity</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+   <span class="o">....</span><span class="p">:</span>                         <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+   <span class="o">....</span><span class="p">:</span>                                 <span class="k">break</span>
+   <span class="o">....</span><span class="p">:</span>                         <span class="n">lca</span><span class="o">.</span><span class="n">redo_lcia</span><span class="p">({</span><span class="n">activity</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+   <span class="o">....</span><span class="p">:</span>                         <span class="n">results</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">lca</span><span class="o">.</span><span class="n">score</span>
+   <span class="o">....</span><span class="p">:</span>         <span class="k">return</span> <span class="n">results</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">kendalltau</span><span class="p">(</span><span class="o">*</span><span class="n">calculate_correlation</span><span class="p">())</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">KendalltauResult</span><span class="p">(</span><span class="n">correlation</span><span class="o">=-</span><span class="mf">0.004769486612148318</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.82132482572697252</span><span class="p">)</span>
+</pre></div>
+                </div>
+
                 <div>
                     <h2 class="content-subhead">Credits</h2>
                     <p>
@@ -191,10 +221,11 @@
     </div>
 
 <script type="text/javascript">
-    var button_ids = ["button-lca", "button-ecoinvent"];
+    var button_ids = ["button-lca", "button-ecoinvent", "button-correlation"];
     var button_mapping = {
         "button-lca": "example-lca",
-        "button-ecoinvent": "example-ecoinvent"
+        "button-ecoinvent": "example-ecoinvent",
+        "button-correlation": "example-correlation"
     };
 
     $(".example-button").on("click", function () {
