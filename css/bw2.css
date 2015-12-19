@@ -141,13 +141,6 @@ appears on the left side of the page.
             color: white;
         }
 
-    /*
-    This styles the selected menu item `<li>`.
-    */
-    #menu .pure-menu-selected,
-    #menu .pure-menu-heading {
-        background: ;
-    }
         /*
         This styles a link within a selected menu item `<li>`.
         */
@@ -165,12 +158,12 @@ appears on the left side of the page.
         margin: 0;
     }
 
-/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+.selected {
+    background-color: #64897c;
+    color: #f6f6f6;
+}
 
-/*
-The button to open/close the Menu is custom-made and not part of Pure. Here's
-how it works:
-*/
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
 /*
 `.menu-link` represents the responsive menu toggle that shows/hides on

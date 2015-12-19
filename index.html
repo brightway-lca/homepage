@@ -7,6 +7,8 @@
     <title>Brightway2 LCA framework</title>
     <link rel="stylesheet" href="css/pure-min.css">
     <link rel="stylesheet" href="css/bw2.css">
+    <link rel="stylesheet" href="css/pygments.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
     <div id="layout">
@@ -80,7 +82,7 @@
                 <div>
                     <h2 class="content-subhead">Principles</h2>
                     <div class="pure-g">
-                        <div class="pure-u-12-24">
+                        <div class="pure-u-1 pure-u-lg-12-24 pure-u-md-1-1">
                             <ul>
                                 <li>
                                     <b>Open</b>. All code in Brightway2 is open source, and made available under the <a href="http://opensource.org/licenses/BSD-3-Clause">BSD license</a>.
@@ -90,7 +92,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="pure-u-12-24">
+                        <div class="pure-u-1 pure-u-lg-12-24 pure-u-md-1-1">
                         <ul>
                             <li>
                                 <b>Freedom</b>. A inventory dataset is a document with a few required fields, and can be adapted to your particular model or problem domain.
@@ -101,6 +103,78 @@
                         </ul>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <h2 class="content-subhead">Examples</h2>
+                    <div class=""></div>
+                </div>
+
+                <div class="pure-menu pure-menu-horizontal">
+                        <button class="pure-button selected example-button" id="button-lca">LCA Calculation</button>
+                        <button class="pure-button example-button" id="button-ecoinvent">Import ecoinvent 3.2</button>
+                </div>
+
+                <div id="example-lca">
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">brightway2</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">do_lca</span><span class="p">():</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">lca</span> <span class="o">=</span> <span class="n">LCA</span><span class="p">(</span>
+   <span class="o">...</span><span class="p">:</span>         <span class="n">demand</span><span class="o">=</span><span class="p">{</span><span class="n">Database</span><span class="p">(</span><span class="s">&quot;ecoinvent 2.2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">random</span><span class="p">():</span> <span class="mi">1</span><span class="p">},</span>
+   <span class="o">...</span><span class="p">:</span>         <span class="n">method</span><span class="o">=</span><span class="n">methods</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="p">)</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">lca</span><span class="o">.</span><span class="n">lci</span><span class="p">()</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">lca</span><span class="o">.</span><span class="n">lcia</span><span class="p">()</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="n">lca</span><span class="o">.</span><span class="n">score</span>
+   <span class="o">...</span><span class="p">:</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">do_lca</span><span class="p">()</span>
+<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">1.12</span> <span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+                </div>
+
+                <div id="example-ecoinvent" style="display: none;">
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">brightway2</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">fp</span> <span class="o">=</span> <span class="s">&quot;/Users/cmutel/Documents/LCA Documents/Ecoinvent/3.2/cutoff/datasets&quot;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">ei</span> <span class="o">=</span> <span class="n">SingleOutputEcospold2Importer</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;ecoinvent 3.2 cutoff&quot;</span><span class="p">)</span>
+<span class="n">Extracting</span> <span class="n">ecospold2</span> <span class="n">files</span><span class="p">:</span>
+<span class="mi">0</span><span class="o">%</span>                          <span class="mi">100</span><span class="o">%</span>
+<span class="p">[##############################] | ETA[sec]: 0.000 | Item ID: fff1a27b-b651-444</span>
+<span class="n">Total</span> <span class="n">time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mf">127.138</span> <span class="n">sec</span>
+<span class="n">Extracted</span> <span class="mi">12916</span> <span class="n">datasets</span> <span class="ow">in</span> <span class="mf">127.87</span> <span class="n">seconds</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">ei</span><span class="o">.</span><span class="n">apply_strategies</span><span class="p">()</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">normalize_units</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">remove_zero_amount_coproducts</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">remove_zero_amount_inputs_with_no_activity</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">remove_unnamed_parameters</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">es2_assign_only_product_with_amount_as_reference_product</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">assign_single_product_as_activity</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">create_composite_code</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">drop_unspecified_subcategories</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">link_biosphere_by_flow_uuid</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">link_internal_technosphere_by_composite_code</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">delete_exchanges_missing_activity</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">delete_ghost_exchanges</span>
+<span class="n">Applying</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">nuncertainty</span>
+<span class="n">Applied</span> <span class="mi">13</span> <span class="n">strategies</span> <span class="ow">in</span> <span class="mf">3.53</span> <span class="n">seconds</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">ei</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+<span class="mi">12916</span> <span class="n">datasets</span>
+<span class="mi">459268</span> <span class="n">exchanges</span>
+<span class="mi">0</span> <span class="n">unlinked</span> <span class="n">exchanges</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">(</span><span class="mi">12916</span><span class="p">,</span> <span class="mi">459268</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">ei</span><span class="o">.</span><span class="n">write_database</span><span class="p">()</span>
+<span class="n">Writing</span> <span class="n">activities</span> <span class="n">to</span> <span class="n">SQLite3</span> <span class="n">database</span><span class="p">:</span>
+<span class="mi">0</span><span class="o">%</span>                          <span class="mi">100</span><span class="o">%</span>
+<span class="p">[##############################] | ETA[sec]: 0.000</span>
+<span class="n">Total</span> <span class="n">time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mf">76.513</span> <span class="n">sec</span>
+<span class="n">Created</span> <span class="n">database</span><span class="p">:</span> <span class="n">ecoinvent</span> <span class="mf">3.2</span> <span class="n">cutoff</span>
+</pre></div>
                 </div>
 
                 <div>
@@ -115,5 +189,27 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+    var button_ids = ["button-lca", "button-ecoinvent"];
+    var button_mapping = {
+        "button-lca": "example-lca",
+        "button-ecoinvent": "example-ecoinvent"
+    };
+
+    $(".example-button").on("click", function () {
+        console.log( this );
+        for (var i = button_ids.length - 1; i >= 0; i--) {
+            if (this.id === button_ids[i]) {
+                $("#" + button_ids[i]).addClass("selected");
+                $("#" + button_mapping[button_ids[i]]).show();
+            } else {
+                $("#" + button_ids[i]).removeClass("selected");
+                $("#" + button_mapping[button_ids[i]]).hide();
+            };
+        };
+    });
+</script>
+
 </body>
 </html>
